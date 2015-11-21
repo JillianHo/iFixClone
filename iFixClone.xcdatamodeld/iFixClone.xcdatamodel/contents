@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9053" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="Device" representedClassName=".Device" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imei" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufacture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productionDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="warrantyDate" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Issue" representedClassName=".Issue" syncable="YES">
+        <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isNotifyEmail" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="issues" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="isTravelToConsumer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="previewImgUrl" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="serviceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeCreated" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" syncable="YES"/>
+        <relationship name="providers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Offers" inverseName="issue" inverseEntity="Offers" syncable="YES"/>
+    </entity>
+    <entity name="Offers" representedClassName=".Offers" parentEntity="Provider" syncable="YES">
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalPrice" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="issue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Issue" inverseName="providers" inverseEntity="Issue" syncable="YES"/>
+    </entity>
+    <entity name="Provider" representedClassName=".Provider" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="votedStars" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Device" positionX="-216" positionY="-19" width="128" height="163"/>
+        <element name="Issue" positionX="-74" positionY="-315" width="128" height="223"/>
+        <element name="Offers" positionX="288" positionY="81" width="128" height="88"/>
+        <element name="Provider" positionX="288" positionY="-183" width="128" height="120"/>
+    </elements>
+</model>
